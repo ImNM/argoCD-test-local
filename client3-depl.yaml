@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: client3-depl
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: client3
+  template:
+    metadata:
+      labels:
+        app: client3
+    spec:
+      containers:
+        - name: client3
+          image: water0641/k8s-client3-test
+          env:
+            - name: RABBIT_HOST
+              value: "rabbitmq-1.rabbitmq.rabbits.svc.cluster.local"
+            - name: RABBIT_PORT
+              value: "5672"
+            - name: RABBIT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-publisher
+                  key: RABBIT_USERNAME
+            - name: RABBIT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-publisher
+                  key: RABBIT_PASSWORD
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: client3-srv
+spec:
+  selector:
+    app: client3
+  ports:
+    - name: client3
+      protocol: TCP
+      port: 3002
+      targetPort: 3002
