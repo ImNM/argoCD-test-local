@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client2
-          image: 135487423365.dkr.ecr.ap-northeast-2.amazonaws.com/client1
+          image: 135487423365.dkr.ecr.ap-northeast-2.amazonaws.com/client1:210729-2113
           env:
             - name: RABBIT_HOST
               value: "rabbitmq-1.rabbitmq.rabbits.svc.cluster.local"
