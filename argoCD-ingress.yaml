@@ -8,12 +8,16 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-    - host: argocd.chanjintest.com
-      http:
+    - http:
         paths:
           - path: /
             backend:
               serviceName: argocd-server
               servicePort: https
+  tls:
+    - hosts:
+        - argocd.chanjintest.com
+      secretName: argocd-secret # do not change, this is provided by Argo CD
