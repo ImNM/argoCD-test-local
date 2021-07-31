@@ -11,7 +11,7 @@ metadata:
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   rules:
-    - hosts: argocd.chanjintest.com
+    - host: argocd.chanjintest.com
       http:
         paths:
           - path: /
