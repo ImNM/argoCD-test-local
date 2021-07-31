@@ -9,7 +9,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   rules:
-    - host: argoCD.chanjintest.com
+    - host: argocd.chanjintest.com
       http:
         paths:
           - backend:
