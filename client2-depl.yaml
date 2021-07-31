@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client2
-          image: water0641/k8s-client2-test
+          image: 135487423365.dkr.ecr.ap-northeast-2.amazonaws.com/client1
           env:
             - name: RABBIT_HOST
               value: "rabbitmq-1.rabbitmq.rabbits.svc.cluster.local"
