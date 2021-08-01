@@ -25,7 +25,7 @@ spec:
       containers:
         - name: fluentd
           imagePullPolicy: "Always"
-          image: water0641/fluentd-demo
+          image: 135487423365.dkr.ecr.ap-northeast-2.amazonaws.com/fluentd
           env:
             - name: FLUENT_ELASTICSEARCH_HOST # 엘라스틱서치 클러스터 마스터노드만 쓰기가능!
               value: "elasticsearch-master.default.svc.cluster.local"
